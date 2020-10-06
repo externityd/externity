@@ -1,109 +1,66 @@
-# The Architect theme
+# Aurora - An awesome blog theme
 
-[![Build Status](https://travis-ci.org/pages-themes/architect.svg?branch=master)](https://travis-ci.org/pages-themes/architect) [![Gem Version](https://badge.fury.io/rb/jekyll-theme-architect.svg)](https://badge.fury.io/rb/jekyll-theme-architect)
+[![Author](https://img.shields.io/badge/author-chanshiyucx-blue.svg?style=flat-square)](https://chanshiyu.com)
+[![QQ群](https://img.shields.io/badge/QQ群-1029784628-blue.svg?style=flat-square)](https://jq.qq.com/?_wv=1027&k=5cHOhhO)
+[![Email](https://img.shields.io/badge/Email%20me-me@chanshiyu.com-green.svg?style=flat-square)](me@chanshiyu.com)
 
-*Architect is a Jekyll theme for GitHub Pages. You can [preview the theme to see what it looks like](http://pages-themes.github.io/architect), or even [use it today](#usage).*
+![蝉時雨](https://i.loli.net/2019/04/28/5cc5bbc4ae020.png)
 
-![Thumbnail of Architect](thumbnail.png)
+Aurora 是一个基于 Vue 开发的 SPA 单页面博客应用程序，使用 [Github Issues](https://developer.github.com/v3/issues/) 进行写作，借助 [Github Api](https://developer.github.com/v3/) 获取内容，通过 `Github Pages` 部署在线访问。博客评论系统采用开源项目 [Gitalk](https://github.com/gitalk/gitalk)。主题基于 Github 全家桶，脱离服务器与数据库，关注内容本身，操作简单，免费食用。
 
-## Usage
+技术栈：Vue + Github Pages + Github Issues + Github Api + Gitalk。
 
-To use the Architect theme:
+在线演示：[蝉時雨](https://chanshiyu.com)
 
-1. Add the following to your site's `_config.yml`:
+## Getting Started
 
-    ```yml
-    theme: jekyll-theme-architect
-    ```
+### Installing
 
-2. Optionally, if you'd like to preview your site on your computer, add the following to your site's `Gemfile`:
+```bash
+npm install -g @vue/cli-service-global
 
-    ```ruby
-    gem "github-pages", group: :jekyll_plugins
-    ```
+git clone git@github.com:chanshiyucx/aurora.git
 
-## Customizing
-
-### Configuration variables
-
-Architect will respect the following variables, if set in your site's `_config.yml`:
-
-```yml
-title: [The title of your site]
-description: [A short description of your site's purpose]
+cd aurora
+npm install
 ```
 
-Additionally, you may choose to set the following optional variables:
+### Configuration
 
-```yml
-show_downloads: ["true" or "false" to indicate whether to provide a download URL]
-google_analytics: [Your Google Analytics tracking ID]
+修改配置文件 `src/config.js`，每个配置项都有详细说明。
+
+完整详细的主题食用方法参考 [Aurora 食用指南](https://chanshiyu.com/#/post/41)。
+
+### Preview
+
+确定配置无误，可以先行本地预览。
+
+```shell
+npm start
 ```
 
-### Stylesheet
+浏览器打开 `http://localhost:8000` 便可访问新的博客！
 
-If you'd like to add your own custom styles:
+> 注意在本地预览时 gitalk 不能正常使用，这属于正常情况，发布线上访问便能正常显示评论。
 
-1. Create a file called `/assets/css/style.scss` in your site
-2. Add the following content to the top of the file, exactly as shown:
-    ```scss
-    ---
-    ---
+### Deployment
 
-    @import "{{ site.theme }}";
-    ```
-3. Add any custom CSS (or Sass, including imports) you'd like immediately after the `@import` line
+本地预览检查能正常访问后，即可以打包发布上线。
 
-*Note: If you'd like to change the theme's Sass variables, you must set new values before the `@import` line in your stylesheet.*
+Aurora 2.0 添加一键部署功能，只需要编辑 `deploy.sh`，配置自己的仓库和域名，之后命令行执行 `./deploy.sh`，即可自动打包并上传到指定仓库，将该仓库开启 `Github Pages` 功能即可在线访问。
 
-### Layouts
+```shell
+./deploy.sh
+```
 
-If you'd like to change the theme's HTML layout:
+Just enjoy it ฅ●ω●ฅ
 
-1. [Copy the original template](https://github.com/pages-themes/architect/blob/master/_layouts/default.html) from the theme's repository<br />(*Pro-tip: click "raw" to make copying easier*)
-2. Create a file called `/_layouts/default.html` in your site
-3. Paste the default layout content copied in the first step
-4. Customize the layout as you'd like
+## Timeline
 
-### Overriding GitHub-generated URLs
+- 2019/10/24 Aurora 2.0
+- 2019/04/25 新增背景主题-千年幻想
+- 2019/03/08 新增 Valine 匿名评论功能
 
-Templates often rely on URLs supplied by GitHub such as links to your repository or links to download your project. If you'd like to override one or more default URLs:
+## License
 
-1. Look at [the template source](https://github.com/pages-themes/architect/blob/master/_layouts/default.html) to determine the name of the variable. It will be in the form of `{{ site.github.zip_url }}`.
-2. Specify the URL that you'd like the template to use in your site's `_config.yml`. For example, if the variable was `site.github.url`, you'd add the following:
-    ```yml
-    github:
-      zip_url: http://example.com/download.zip
-      another_url: another value
-    ```
-3. When your site is built, Jekyll will use the URL you specified, rather than the default one provided by GitHub.
-
-*Note: You must remove the `site.` prefix, and each variable name (after the `github.`) should be indent with two space below `github:`.*
-
-For more information, see [the Jekyll variables documentation](https://jekyllrb.com/docs/variables/).
-
-## Roadmap
-
-See the [open issues](https://github.com/pages-themes/architect/issues) for a list of proposed features (and known issues).
-
-## Project philosophy
-
-The Architect theme is intended to make it quick and easy for GitHub Pages users to create their first (or 100th) website. The theme should meet the vast majority of users' needs out of the box, erring on the side of simplicity rather than flexibility, and provide users the opportunity to opt-in to additional complexity if they have specific needs or wish to further customize their experience (such as adding custom CSS or modifying the default layout). It should also look great, but that goes without saying.
-
-## Contributing
-
-Interested in contributing to Architect? We'd love your help. Architect is an open source project, built one contribution at a time by users like you. See [the CONTRIBUTING file](docs/CONTRIBUTING.md) for instructions on how to contribute.
-
-### Previewing the theme locally
-
-If you'd like to preview the theme locally (for example, in the process of proposing a change):
-
-1. Clone down the theme's repository (`git clone https://github.com/pages-themes/architect`)
-2. `cd` into the theme's directory
-3. Run `script/bootstrap` to install the necessary dependencies
-4. Run `bundle exec jekyll serve` to start the preview server
-5. Visit [`localhost:4000`](http://localhost:4000) in your browser to preview the theme
-
-### Running tests
-
-The theme contains a minimal test suite, to ensure a site with the theme would build successfully. To run the tests, simply run `script/cibuild`. You'll need to run `script/bootstrap` one before the test script will work.
+This project is licensed under the MIT License.
